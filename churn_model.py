@@ -1,7 +1,7 @@
-# ============================================================
+
 # Customer Churn Prediction Model
 # Tools: Python, Scikit-learn, Pandas, Matplotlib, Seaborn
-# ============================================================
+
 
 import pandas as pd
 import numpy as np
@@ -21,9 +21,9 @@ from sklearn.metrics import (
 import joblib
 import os
 
-# ─────────────────────────────────────────────
+
 # 1. Generate Synthetic Dataset
-# ─────────────────────────────────────────────
+
 
 def generate_dataset(n_samples: int = 5000, random_state: int = 42) -> pd.DataFrame:
     """Generate a realistic synthetic customer churn dataset."""
@@ -84,10 +84,7 @@ def generate_dataset(n_samples: int = 5000, random_state: int = 42) -> pd.DataFr
 
     return df
 
-
-# ─────────────────────────────────────────────
 # 2. Data Preprocessing
-# ─────────────────────────────────────────────
 
 def preprocess(df: pd.DataFrame):
     """Clean, encode, and scale features."""
@@ -121,9 +118,7 @@ def preprocess(df: pd.DataFrame):
     return X, y, scaler
 
 
-# ─────────────────────────────────────────────
 # 3. Feature Engineering
-# ─────────────────────────────────────────────
 
 def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
@@ -134,9 +129,8 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-# ─────────────────────────────────────────────
 # 4. Model Training & Evaluation
-# ─────────────────────────────────────────────
+
 
 def train_evaluate(X_train, X_test, y_train, y_test, output_dir: str):
     results = {}
@@ -174,10 +168,8 @@ def train_evaluate(X_train, X_test, y_train, y_test, output_dir: str):
 
     return results
 
-
-# ─────────────────────────────────────────────
 # 5. Hyperparameter Tuning (Random Forest)
-# ─────────────────────────────────────────────
+
 
 def tune_random_forest(X_train, y_train):
     param_grid = {
@@ -195,9 +187,8 @@ def tune_random_forest(X_train, y_train):
     return grid.best_estimator_
 
 
-# ─────────────────────────────────────────────
+
 # 6. Visualisations
-# ─────────────────────────────────────────────
 
 def plot_all(df_raw, results, X_test, y_test, feature_names, output_dir):
     os.makedirs(output_dir, exist_ok=True)
@@ -300,10 +291,8 @@ def actionable_insights(df: pd.DataFrame):
     print()
 
 
-# ─────────────────────────────────────────────
-# 8. Main Pipeline
-# ─────────────────────────────────────────────
 
+# 8. Main Pipeline
 def main():
     OUTPUT_DIR = "outputs/churn"
     os.makedirs(OUTPUT_DIR, exist_ok=True)
