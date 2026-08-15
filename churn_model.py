@@ -17,7 +17,7 @@ import joblib
 import os
 
 
-# 1. Generate Synthetic Dataset
+# 1.Generate Synthetic Dataset
 
 
 def generate_dataset(n_samples: int = 5000, random_state: int = 42) -> pd.DataFrame:
